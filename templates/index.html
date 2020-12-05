@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sentiment Analysis</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.1/particles.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+</head>
+<style>
+.jumbotron{
+	align-content: center;
+	max-width: 500px;
+	margin-left: 400px;
+	margin-top:150px;
+}
+</style>
+<body style="background: linear-gradient(to right, #fc00ff, #00dbde);font-family: 'Handlee', cursive;font-size: 20px">
+	<div class="jumbotron">
+	<form action="http://localhost:5000/results">
+		Please Enter URL:
+		<input class='form-control form-control-sm 'type="text" name="url" id="url"/><br>
+		<ul class="list-group">
+		<li style="background-color: #e8ebef;text-align: center;" class="list-group-item">Amazon <input type="checkbox" id="amazon" name="amazon" /></li><br>
+		<li style="background-color: #e8ebef;text-align: center;" class="list-group-item">Imdb <input type="checkbox" id="imdb" name="imdb" /></li><br>
+		<li style="background-color: #e8ebef;text-align: center;" class="list-group-item">Flipkart <input type="checkbox" id="imdb" name="flipkart" /></li><br>
+		<li style="background-color: #e8ebef;text-align: center;" class="list-group-item"><input class=" btn btn-outline-primary" type="submit" value="Submit"></li>
+		</ul>
+	</form>
+	</div>
+	<script>
+	</script>
+	<!-- required javascript's -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -8,10 +8,10 @@ from selenium.webdriver.common.keys import Keys
 from xml.dom import minidom
 from tqdm import tqdm
 import os
-
+from .util import get_config_information
 #joining connection
 
-browser = webdriver.Chrome("/home/oxygen_/Documents/chromedriver")
+browser = webdriver.Chrome(str(get_config_information('chrome')))
 
 page_no = []
 s = "https://www.amazon.com/SanDisk-Cruzer-Frustration-Free-Packaging-SDCZ50-032G-AFFP/product-reviews/B007KFAG8Y/ref=cm_cr_arp_d_paging_btm_2?ie=UTF8&reviewerType=all_reviews&pageNumber=1"

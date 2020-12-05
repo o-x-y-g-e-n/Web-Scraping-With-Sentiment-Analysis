@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Analysing</title>
+  <link href="https://fonts.googleapis.com/css?family=Boogaloo" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Itim" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+<body>
+	{%for key in major_terms%}
+	<tr><td>
+	<button><a href="http://localhost:5000/results/{{loop.index}}">{{loop.index}}</a></button>
+	</td></tr> 
+	{%endfor%}
+	<div style="text-align: center;margin-top:20px">
+  <form action="/word_main">
+ 	Search Manually:<input type="text" name="search_word"><br>
+  	<input  style="margin-top:10px;margin-left: 100px;" class=" btn btn-outline-primary" type="submit" value="Submit">
+	</form>
+  </div>
+	<h4><a href="http://localhost:5000/">HOME</a></h4>
+	<h1 style="font-family: 'Boogaloo',cursive;text-align: center;">{{major_term}}</h1>
+  <div style="background-color: white;" class="jumbotron">
+	<canvas style=""id="chart" width="600" height="400"></canvas>
+  </div>
+  <script>
+    // bar chart data
+   var barData = {
+   labels : [{% for item in labels %}
+              "{{item}}",
+          {% endfor %}],
+   datasets : [
+      {
+        fillColor: "rgba(151,187,205,0.2)",
+        strokeColor: "rgba(151,187,205,1)",
+        pointColor: "rgba(151,187,205,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(151,187,205,1)",
+        bezierCurve : false,
+        data : [{% for item in values %}
+                  {{item}},
+                {% endfor %}]
+      }]
+   }
+
+    Chart.defaults.global.animationSteps = 50;
+    Chart.defaults.global.tooltipYPadding = 16;
+    Chart.defaults.global.tooltipCornerRadius = 0;
+    Chart.defaults.global.tooltipTitleFontStyle = "normal";
+    Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+    Chart.defaults.global.animationEasing = "easeOutBounce";
+    Chart.defaults.global.responsive = false;
+    Chart.defaults.global.scaleLineColor = "black";
+    Chart.defaults.global.scaleFontSize = 16;
+
+   // get bar chart canvas
+   var mychart = document.getElementById("chart").getContext("2d");
+
+   steps = 100
+   max = 100
+
+   // draw bar chart
+   var LineChartDemo = new Chart(mychart).Bar(barData, {
+    scaleOverride: false,
+    scaleSteps: steps,
+    scaleStepWidth: Math.ceil(max / steps),
+    scaleStartValue: 0,
+    scaleShowVerticalLines: true,
+    scaleShowGridLines : true,
+    barShowStroke : true,
+    scaleShowLabels: true,
+    bezierCurve: false,
+  });
+</script>
+	<hr>
+  <nav class="nav">
+  <a class="nav-link active" href="#pos">Positive</a>
+  <a class="nav-link" href="#neg">Negative</a>
+  <a class="nav-link" href="#net">Neutral</a>
+  </nav>
+  <a name="pos"></a>
+	<h1>POSITIVE</h1>
+	<ul class="list group">
+  {%for key in positive%}
+  	<li class="list-group-item">
+    <h2 style="font-family: 'Itim', cursive;">{{key}}</h2>
+    </li>
+    {%endfor%}
+  </ul>
+  <hr>
+   <nav class="nav">
+  <a class="nav-link" href="#pos">Positive</a>
+  <a class="nav-link" href="#neg">Negative</a>
+  <a class="nav-link" href="#net">Neutral</a>
+  </nav>
+  <a name="neg"></a>
+	<h1>NEGATIVE</h1>
+  <ul class="list-group">
+  {%for key in negative%}
+	<li class="list-group-item">
+  <h2 style="font-family: 'Itim', cursive;">{{key}}</h2>
+	 </li>
+   {%endfor%}
+	</ul>
+  <hr>
+   <nav class="nav">
+  <a class="nav-link" href="#pos">Positive</a>
+  <a class="nav-link" href="#neg">Negative</a>
+  <a class="nav-link" href="#net">Neutral</a>
+  </nav>
+  <a name="net"></a>
+	<h1>NEUTRAL</h1>
+  <ul class="list-group">
+  {%for key in neutral%}
+		<li class="list-group-item">
+    <h2 style="font-family: 'Itim', cursive;">{{key}}</h2>
+	 </li>
+  {%endfor%}
+  </ul>
+  </tbody>
+  </table>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
