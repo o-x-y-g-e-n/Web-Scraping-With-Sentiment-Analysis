@@ -1,6 +1,7 @@
 # Web Scraping with Sentiment Analysis
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://bitbucket.org/lbesson/ansi-colors) [![GitHub license](https://img.shields.io/github/license/o-x-y-g-e-n/Web-Scraping-With-Sentiment-Analysis)](https://github.com/o-x-y-g-e-n/Web-Scraping-With-Sentiment-Analysis/blob/master/LICENSE) [![GitHub contributors](https://img.shields.io/github/contributors/o-x-y-g-e-n/Web-Scraping-With-Sentiment-Analysis)](https://GitHub.com/o-x-y-g-e-n/Facebook-AutoReply-Bot/graphs/contributors/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/o-x-y-g-e-n/badges/)
 ![alt text](https://i.ibb.co/NLN8f4X/undraw-sentiment-analysis-jp6w.png)
+
 The program helps scrape reviews from websites like
 * amazon.com
 * flipkart.com
@@ -59,8 +60,8 @@ Download the following dependencies
 [![Video](https://img.youtube.com/vi/I39z1mXaer8/0.jpg)](https://www.youtube.com/watch?v=I39z1mXaer8)
 
 ### Improvements
--[ ] Add more websites
--[ ] Update Scrapers 
+- [ ] Add more websites
+- [ ] Update Scrapers 
 
 
 License
